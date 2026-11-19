@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>BSI szerepkör- és bérjavaslat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* Layout: one narrow reading column, offer-letter rhythm: hero, letter, dark reframe, numbered sections, price box. Single light theme by choice. */
+  :root{
+    --paper:#EEF1F4;
+    --paper-2:#E3E8EE;
+    --ink:#111820;
+    --deep:#0A1622;
+    --signal:#1D5FD6;
+    --signal-deep:#164BAA;
+    --steel:#64778A;
+    --muted:#435260;
+    --ice:#D2DBE4;
+    --ice-soft:#DFE6ED;
+    --white:#FFFFFF;
+    --good:#1E7A4F;
+    --font-display:"Fraunces",Georgia,serif;
+    --font-body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --font-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+    --maxw:920px;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--font-body);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  h1,h2,h3{font-family:var(--font-display);font-weight:500;letter-spacing:-.01em;line-height:1.1;margin:0;text-wrap:balance}
+  p{margin:0 0 1.05em}
+  strong{font-weight:600}
+  .num-tab{font-variant-numeric:tabular-nums}
+  .eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--steel);font-weight:500}
+
+  /* top bar */
+  .topbar{border-bottom:1px solid var(--ice);background:rgba(238,241,244,.9);backdrop-filter:blur(8px);position:sticky;top:0;z-index:20}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:58px}
+  .brandrow{display:flex;align-items:center;gap:14px}
+  .logo{height:32px;width:auto;display:block}
+  .brand{font-family:var(--font-display);font-weight:600;font-size:18px}
+  .brand small{font-family:var(--font-mono);font-weight:400;font-size:10.5px;letter-spacing:.14em;color:var(--steel);text-transform:uppercase;display:block;margin-top:-2px}
+  .topbar .tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);text-align:right}
+
+  .toc{border-top:1px solid var(--ice-soft)}
+  .toc .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-top:6px;padding-bottom:6px}
+  .toc .wrap::-webkit-scrollbar{display:none}
+  .toc a{flex:0 0 auto;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);text-decoration:none;padding:6px 10px;border-radius:3px;white-space:nowrap}
+  .toc a:hover{color:var(--ink);background:var(--paper-2)}
+  .toc a:focus-visible{outline:2px solid var(--signal);outline-offset:1px}
+  .toc a.on{color:var(--white);background:var(--signal)}
+  section[id]{scroll-margin-top:118px}
+
+  /* hero */
+  .hero{padding:76px 0 56px}
+  .hero .eyebrow{margin-bottom:24px}
+  .hero h1{font-size:clamp(36px,6.2vw,64px)}
+  .hero h1 .em{font-style:italic;color:var(--signal)}
+  .hero .lede{font-size:clamp(18px,2.3vw,20px);color:var(--muted);max-width:34em;margin-top:24px}
+  .meta{display:flex;flex-wrap:wrap;gap:28px;margin-top:36px;padding-top:22px;border-top:1px solid var(--ice);font-family:var(--font-mono);font-size:12.5px;color:var(--steel)}
+  .meta b{display:block;color:var(--ink);font-weight:500;font-size:13.5px;margin-top:3px}
+  .statstrip{display:flex;flex-wrap:wrap;margin-top:42px;border:1px solid var(--ice);border-radius:3px;overflow:hidden;background:var(--white)}
+  .statstrip .s{flex:1 1 160px;padding:18px 20px;border-right:1px solid var(--ice-soft);border-bottom:1px solid var(--ice-soft)}
+  .statstrip .s:last-child{border-right:0}
+  .statstrip .n{font-family:var(--font-display);font-size:26px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+  .statstrip .l{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);margin-top:8px;line-height:1.45}
+  .statstrip .s.hot .n{color:var(--signal)}
+
+  /* sections */
+  section{padding:52px 0}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:28px}
+  .sec-head .num{font-family:var(--font-mono);font-size:13px;color:var(--signal);font-weight:700;letter-spacing:.1em}
+  .sec-head h2{font-size:clamp(26px,3.6vw,36px)}
+  .lead-p{font-size:18.5px;color:var(--muted);max-width:37em}
+  .divider{height:1px;background:var(--ice);border:0;margin:0}
+
+  /* letter */
+  .letter{background:var(--white);border:1px solid var(--ice);border-radius:4px;padding:40px 42px}
+  .letter .sig{font-family:var(--font-display);font-style:italic;font-size:22px;margin-top:8px}
+  .letter .sigsub{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-top:2px}
+
+  /* dark block */
+  .dark{background:var(--deep);color:#E6ECF2;border-radius:6px;padding:46px 44px;position:relative;overflow:hidden}
+  .dark .eyebrow{color:#7F93A6}
+  .dark p{color:#B6C3CF}
+  .dark .big{font-family:var(--font-display);font-size:clamp(24px,3.4vw,33px);font-weight:500;color:#fff;line-height:1.2;margin:14px 0 .6em;text-wrap:balance}
+  .dark .big .em{font-style:italic;color:#7FA8F0}
+  .dark strong{color:#fff}
+  .dark .glow{position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(29,95,214,.42),transparent 68%);right:-90px;top:-130px;pointer-events:none}
+  .dark > *:not(.glow){position:relative}
+
+  /* route */
+  .route{position:relative;padding-left:46px;margin-top:34px}
+  .route::before{content:"";position:absolute;left:13px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--signal),var(--ice))}
+  .stop{position:relative;padding:0 0 30px}
+  .stop:last-child{padding-bottom:0}
+  .stop::before{content:"";position:absolute;left:-39px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--signal);box-shadow:0 0 0 4px var(--paper)}
+  .stop .wp{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel)}
+  .stop h3{font-size:21px;margin:4px 0 8px}
+  .stop p{color:var(--muted);margin-bottom:0;max-width:38em}
+  .stop .result{display:inline-block;margin-top:10px;font-family:var(--font-mono);font-size:12px;color:var(--signal-deep);background:#E4ECFA;border-radius:3px;padding:4px 10px}
+
+  /* grid */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ice);border:1px solid var(--ice);border-radius:4px;overflow:hidden}
+  .grid .cell{background:var(--white);padding:26px 24px}
+  .grid .cell.wide{grid-column:1/-1;background:var(--paper-2)}
+  .grid .k{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:700}
+  .grid .cell.wide .k{color:var(--steel)}
+  .grid h3{font-size:19px;margin:8px 0 8px}
+  .grid p{font-size:14.5px;color:var(--muted);margin:0}
+
+  /* money tables */
+  .invest{background:var(--white);border:1px solid var(--ice);border-radius:4px;overflow:hidden;margin-top:28px}
+  .invest .cap{padding:14px 26px;background:var(--paper-2);font-family:var(--font-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);border-bottom:1px solid var(--ice-soft)}
+  .row{display:flex;justify-content:space-between;gap:20px;align-items:baseline;padding:16px 26px;border-bottom:1px solid var(--ice-soft)}
+  .row .desc{font-size:15.5px}
+  .row .desc small{display:block;color:var(--steel);font-size:12.5px;font-family:var(--font-mono);margin-top:3px;line-height:1.5}
+  .row .amt{font-family:var(--font-mono);font-size:15px;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .row.sub .desc{font-weight:600}
+  .row.sub .amt{font-weight:700}
+  .row .amt.tag{color:var(--signal);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+  .total{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;padding:26px;background:var(--deep);color:#fff}
+  .total .lbl{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#8EA1B3}
+  .total .lbl b{display:block;font-family:var(--font-display);font-size:20px;color:#fff;letter-spacing:0;margin-top:4px;text-transform:none;font-weight:500}
+  .total .price{font-family:var(--font-display);font-size:clamp(30px,4.4vw,42px);font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+  .total .price small{display:block;font-family:var(--font-mono);font-size:11.5px;color:#7FA8F0;letter-spacing:.06em;margin-top:4px;font-weight:400}
+
+  /* compare bars */
+  .compare{display:grid;gap:14px;margin-top:26px}
+  .bar-row{display:grid;grid-template-columns:220px 1fr;gap:16px;align-items:center}
+  .bar-row .bl{font-size:14.5px;color:var(--muted);line-height:1.35}
+  .bar-row .bl b{display:block;color:var(--ink);font-family:var(--font-mono);font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
+  .bar{height:22px;border-radius:3px;background:var(--ice)}
+  .bar.ext{background:var(--steel);opacity:.55}
+  .bar.me{background:var(--signal)}
+
+  /* timeline rows */
+  .tl{margin-top:24px;background:var(--white);border:1px solid var(--ice);border-radius:4px;padding:6px 26px}
+  .row-tl{display:grid;grid-template-columns:86px 1fr auto;gap:18px;align-items:baseline;padding:14px 0;border-bottom:1px dashed var(--ice)}
+  .row-tl:last-child{border-bottom:0}
+  .row-tl .wk{font-family:var(--font-mono);font-size:12.5px;color:var(--signal);font-weight:700}
+  .row-tl .ph{font-size:15.5px}
+  .row-tl .ph small{display:block;color:var(--steel);font-size:12.5px;font-family:var(--font-mono);margin-top:2px}
+  .row-tl .v{font-family:var(--font-mono);font-size:15px;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .row-tl .v.up{color:var(--good)}
+
+  .cmpwrap{overflow-x:auto;margin-top:24px}
+  .cmp{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--ice);border-radius:4px;font-variant-numeric:tabular-nums;min-width:520px}
+  .cmp caption{text-align:left;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);padding:0 0 10px}
+  .cmp th{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);font-weight:500;text-align:left;padding:12px 16px;background:var(--paper-2);border-bottom:1px solid var(--ice)}
+  .cmp td{padding:12px 16px;border-bottom:1px solid var(--ice-soft);font-family:var(--font-mono);font-size:14px;vertical-align:top}
+  .cmp tr:last-child td{border-bottom:0}
+  .cmp td b{color:var(--signal-deep)}
+  .cmp td small{display:block;font-size:11px;color:var(--steel);margin-top:2px}
+  .note a{color:var(--muted)}
+  .scale{display:grid;gap:10px;margin-top:26px;background:var(--white);border:1px solid var(--ice);border-radius:4px;padding:22px 24px}
+  .srow{display:grid;grid-template-columns:230px 1fr;gap:16px;align-items:center}
+  .slab{font-size:14.5px;line-height:1.35}
+  .slab small{display:block;font-family:var(--font-mono);font-size:11.5px;color:var(--steel);margin-top:2px;font-variant-numeric:tabular-nums}
+  .srow.me .slab{font-weight:600;color:var(--signal-deep)}
+  .srow.mk .slab{font-weight:600}
+  .track{position:relative;height:18px;border-radius:9px;background:var(--paper)}
+  .track .band{position:absolute;top:3px;height:12px;border-radius:6px;background:var(--steel);opacity:.45}
+  .track .band.me{background:var(--signal);opacity:1;top:1px;height:16px;border-radius:8px}
+  .track .dot{position:absolute;top:3px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--steel)}
+  .track .dot.mk{background:var(--ink);width:14px;height:14px;margin-left:-7px;top:2px}
+  .srow.axis{margin-top:2px}
+  .track.ticks{background:none;height:16px}
+  .track.ticks span{position:absolute;transform:translateX(-50%);font-family:var(--font-mono);font-size:10.5px;color:var(--steel);white-space:nowrap}
+  .track.ticks span:first-child{transform:none}
+  .row.strike .amt{text-decoration:line-through;color:var(--steel)}
+  .row.strike .desc{color:var(--muted)}
+  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .quotes.one{grid-template-columns:1fr}
+  .quotes.one .q blockquote{font-size:24px}
+  .q{margin:0;background:var(--white);border:1px solid var(--ice);border-radius:4px;padding:22px 24px}
+  .q blockquote{margin:0;font-family:var(--font-display);font-size:19px;line-height:1.35;font-style:italic;color:var(--ink)}
+  .q figcaption{margin-top:10px;font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--steel)}
+  .q.lit{background:var(--deep);border-color:var(--deep)}
+  .q.lit blockquote{color:#fff;font-style:normal}
+  .q.lit figcaption{color:#8EA1B3}
+  .proj{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+  .pcard{background:var(--white);border:1px solid var(--ice);border-radius:4px;padding:22px 24px}
+  .pcard.hot{grid-column:1/-1;border-left:4px solid var(--signal)}
+  .pcard .k{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:700}
+  .pcard h3{font-size:19px;margin:8px 0}
+  .pcard p{margin:0;font-size:14.5px;color:var(--muted)}
+  .opts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px;align-items:stretch}
+  .opt{position:relative;background:var(--white);border:1px solid var(--ice);border-radius:6px;padding:26px 22px 22px;display:flex;flex-direction:column}
+  .opt.rec{border:2px solid var(--signal);box-shadow:0 8px 28px rgba(29,95,214,.14)}
+  .opt .badge{position:absolute;top:-12px;left:20px;background:var(--signal);color:#fff;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:3px;font-weight:700}
+  .opt .ok{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);font-weight:700}
+  .opt.rec .ok{color:var(--signal)}
+  .opt .op{font-family:var(--font-display);font-size:30px;font-weight:600;margin:8px 0 10px;font-variant-numeric:tabular-nums}
+  .opt p{font-size:14.5px;color:var(--muted);margin:0 0 16px;flex:1}
+  .opt .oc{border-top:1px solid var(--ice-soft);padding-top:12px;font-family:var(--font-mono);font-size:11px;color:var(--steel);letter-spacing:.04em}
+  .opt .oc b{display:block;font-size:17px;color:var(--ink);margin:3px 0 1px;font-variant-numeric:tabular-nums}
+  .callout{background:var(--white);border:1px solid var(--ice);border-left:4px solid var(--signal);border-radius:4px;padding:26px 30px;margin-top:24px}
+  .callout .k{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--signal);font-weight:700;margin-bottom:8px}
+  .callout h3{font-size:20px;margin:0 0 8px}
+  .callout p{margin:0;color:var(--muted);font-size:15.5px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 12px}
+  .chip{font-family:var(--font-mono);font-size:12.5px;background:var(--paper);border:1px solid var(--ice);border-radius:3px;padding:6px 10px;font-variant-numeric:tabular-nums}
+  .chip b{color:var(--ink)}
+
+  /* commitment */
+  .guarantee{display:flex;gap:28px;align-items:center;border:2px solid var(--signal);border-radius:6px;padding:30px 32px;background:var(--white)}
+  .seal{flex:0 0 96px;width:96px;height:96px;border-radius:50%;border:2px solid var(--signal);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:var(--signal)}
+  .seal .p{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:.9}
+  .seal .t{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.12em;margin-top:5px}
+  .guarantee h3{font-size:20px;margin-bottom:6px}
+  .guarantee p{margin:0;color:var(--muted);font-size:15px}
+
+  /* steps */
+  .steps{counter-reset:st;list-style:none;padding:0;margin:0}
+  .steps li{position:relative;padding:0 0 22px 52px;counter-increment:st}
+  .steps li::before{content:counter(st);position:absolute;left:0;top:-2px;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;font-family:var(--font-mono);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+
+  footer{border-top:1px solid var(--ice);padding:34px 0 56px;margin-top:24px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:baseline}
+  footer .fb{font-family:var(--font-display);font-size:18px;font-weight:600}
+  footer .fn{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
+
+  .note{font-family:var(--font-mono);font-size:12px;color:var(--steel);line-height:1.7;margin-top:16px}
+  .note span{color:var(--signal)}
+
+  @media (prefers-reduced-motion:no-preference){
+    .fade{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+    @keyframes rise{from{opacity:.001;transform:translateY(12px)}to{opacity:1;transform:none}}
+  }
+  @media (max-width:760px){
+    .grid{grid-template-columns:1fr}
+    .bar-row{grid-template-columns:1fr;gap:6px}
+    .srow{grid-template-columns:1fr;gap:6px}
+    .quotes,.proj,.opts{grid-template-columns:1fr}
+    .opts{gap:22px}
+  }
+  @media (max-width:640px){
+    body{font-size:16px}
+    .wrap{padding:0 18px}
+    .letter,.dark{padding:30px 22px}
+    .guarantee{flex-direction:column;align-items:flex-start;gap:18px}
+    .row,.total,.invest .cap{padding-left:18px;padding-right:18px}
+    .row{flex-direction:column;gap:4px}
+    .row-tl{grid-template-columns:70px 1fr;gap:10px}
+    .row-tl .v{grid-column:2}
+    .tl{padding:6px 18px}
+    .meta{gap:18px}
+    .total .price{text-align:left}
+  }
+  @media print{
+    .topbar{position:static}
+    body{background:#fff;font-size:12pt}
+    section{padding:20px 0;break-inside:avoid}
+    .dark,.total{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .fade{animation:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="brandrow"><img class="logo" src="data:image/png;base64,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" alt="BSI" width="51" height="32"><div class="brand">Gyenes Donát<small>AI- és digitális fejlesztési vezető &middot; javaslat</small></div></div>
+    <div class="tag">Kocsis Árpád részére</div>
+  </div>
+  <nav class="toc" aria-label="Tartalom">
+    <div class="wrap">
+      <a href="#kerte">Kérés</a>
+      <a href="#eredmenyek">Eredmények</a>
+      <a href="#munkakor">Munkakör</a>
+      <a href="#megtakaritas">Megtakarítás</a>
+      <a href="#piac">Piac</a>
+      <a href="#bertortenet">Bértörténet</a>
+      <a href="#projektek">Projektek</a>
+      <a href="#javaslat">Javaslat</a>
+      <a href="#dontes">Döntési lap</a>
+      <a href="#atallas">Átállás</a>
+      <a href="#lepesek">Lépések</a>
+    </div>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="wrap fade">
+    <div class="eyebrow">Szerepkör- és bérjavaslat &middot; BSI &middot; 2026. november</div>
+    <h1>Egy emelés, ami <span class="em">megtakarítást</span> hoz a BSI-nek.</h1>
+    <p class="lede">Közel négy éve fejlesztem a BSI digitális működését, eddig a napi feladataim mellett. Ez a javaslat arról szól, mi történik, ha erre kijelölt szerep, idő és felelősség jut: kevesebb kézi munka, kevesebb külsős költség és gyorsabb fejlesztések.</p>
+    <div class="meta">
+      <div>Címzett<b>Kocsis Árpád</b></div>
+      <div>Készítette<b>Gyenes Donát</b></div>
+      <div>Dátum<b>2026. november 19.</b></div>
+      <div>Javasolt indulás<b>2027. január</b></div>
+    </div>
+    <div class="statstrip">
+      <div class="s"><div class="n">~1,4 M Ft</div><div class="l">a szerep becsült<br>piaci értéke / hó</div></div>
+      <div class="s hot"><div class="n">1,1–1,2 M Ft</div><div class="l">a kért bérsáv / hó,<br>bruttó</div></div>
+      <div class="s"><div class="n">~6,5 M Ft</div><div class="l">évente a BSI javára<br>a külsős piaci árhoz képest</div></div>
+      <div class="s"><div class="n">17</div><div class="l">honlap házon belül<br>kezelve és fejlesztve</div></div>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top:8px">
+  <div class="wrap">
+    <div class="letter">
+      <p>Szia Árpi!</p>
+      <p>Köszönöm a mai beszélgetést, és hogy Krisszel együtt nyitottak vagytok a szerepváltásra. Megkérdezted, milyen jövedelemmel lennék elégedett. Egy bérsávot javaslok, és olyan felépítést, amelyben a sáv felső része csak akkor jár, ha az eredmények is megvannak. Leírtam azt is, miért gondolom, hogy ez a cégnek is jó üzlet.</p>
+      <p>2023 februárja óta dolgozom a BSI-nél. Ez idő alatt a kommunikációs munkám mellett, saját kezdeményezésből építettem fel és fejlesztettem a BSI eseményhonlapjait, megújítottam a Futanetet, és olyan folyamatokat automatizáltam, amelyek korábban eseményenként órákat vittek el. Ezek a fejlesztések eddig a napi feladatok közötti résekben készültek.</p>
+      <p>Az új szerepben erre kijelölt időm és felelősségem lenne. Amit eddig mellékesen csináltam, azt ezentúl tudatosan és rendszeresen csinálnám, mérhető eredményekkel. Reális szeretnék maradni, ezért minden szám, amire hivatkozom, a saját munkámból vagy a béradataimból származik.</p>
+      <p>Az általam fejlesztett funkciókért és a szellemi munkámért eddig soha nem kértem külön díjat. Most is csak azt szeretném, ha a fizetésem arányban lenne az elvárt feladatmennyiséggel.</p>
+      <p style="margin-bottom:0">Köszönöm, hogy átolvasod. Bármelyik pontot szívesen átbeszélem.</p>
+      <div class="sig">Donát</div>
+      <div class="sigsub">Gyenes Donát</div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0" id="kerte">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">&ldquo;</span><h2>Amit te kértél</h2></div>
+    <div class="quotes one">
+      <figure class="q"><blockquote>Arra kértél, hogy legyek a szövetségesed.</blockquote><figcaption>telefon, 2026. október</figcaption></figure>
+    </div>
+    <p class="note">Ez a javaslat erre a gondolatra épül: <span>egy szövetséges, aki a működés egészét fejleszti, reális áron.</span></p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section>
+  <div class="wrap">
+    <div class="dark">
+      <div class="glow"></div>
+      <div class="eyebrow">A kérdés fordítva</div>
+      <p class="big">Mennyibe kerülne ugyanez a munka <span class="em">külsős partnerrel?</span></p>
+      <p>A BSI 17 honlapját ma házon belül kezelem és fejlesztem. Egy ügynökség ezért havidíjat és projektárat számolna, és minden módosításnál a többi ügyfele mögött állnánk sorban.</p>
+      <p style="margin-bottom:0">Nálam ugyanez a munka a fizetésem része, és a fejlesztések gyorsan elkészülnek, mert ismerem az eseményeket, a csapatot és a rendszereket. A javasolt emelés első éve <strong>a harmadába sem kerül annak</strong>, amit ugyanezért piaci áron, külsős partnernek fizetnénk. A részletes számítás a 03-as pontban található.</p>
+    </div>
+  </div>
+</section>
+
+<section id="eredmenyek">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">01</span><h2>Amit közel négy év alatt felépítettem</h2></div>
+    <p class="lead-p">Mind saját kezdeményezésből készült, a napi feladataim mellett, és mind működik ma is.</p>
+    <div class="route">
+      <div class="stop">
+        <div class="wp">Web &middot; folyamatos</div>
+        <h3>A BSI eseményhonlapjai és a futanet.hu</h3>
+        <p>Felépítettem és fejlesztem a BSI eseményhonlapjait: egyedi widgetek, versenyinformációk. Ma 17 honlap kezelése és fejlesztése van a kezemben.</p>
+        <span class="result">17 honlap egy kézben</span>
+      </div>
+      <div class="stop">
+        <div class="wp">Web &middot; résztvevői felület</div>
+        <h3>Az új Futanet</h3>
+        <p>A Futanet a BSI egyik legfontosabb, résztvevők felé látható digitális felülete. Az elmúlt 8 évben a cég több millió forintot költött külsős fejlesztőcsapatokra, de egyiküknek sem sikerült megépítenie. Végül egy személyben, 3 hónap alatt készítettem el 2026 elején, a napi munkám mellett.</p>
+        <span class="result">3 hónap, egy személyben</span>
+      </div>
+      <div class="stop">
+        <div class="wp">Automatizálás &middot; Wizz Air Budapest Félmaraton</div>
+        <h3>Kiállítói adminisztráció</h3>
+        <p>Közel 45 kiállító adatbekérését alakítottam át. Korábban e-mailes adatlapokból Réka kézzel rögzített Excelbe, majd én kézzel töltöttem a weboldalt. Ma egy formátumot és karakterszámot ellenőrző űrlap gyűjti az adatokat, és Réka jóváhagyása után a tartalom automatikusan megjelenik a weben. A felszabadult munkaórák értékteremtő feladatokra fordíthatók, így a megtakarítás közvetve bevételt is termel a cégnek.</p>
+        <span class="result">Eseményenként 6–8 óra helyett néhány perc</span>
+      </div>
+      <div class="stop">
+        <div class="wp">Résztvevői élmény &middot; SPAR Budapest Maraton</div>
+        <h3>Interaktív versenynapi felület</h3>
+        <p>Élő közvetítés, térkép, időjárás, program és útlezárások egy helyen, mobilon is. A szurkolói kalkulátor a versenyszám, célidő és rajtadatok alapján személyre szabott menetrendet ad. Csökkenti az ismétlődő tájékoztatási kérdéseket, és a kiállítói kínálathoz, a Fotókerethez és a virtuális nevezéshez is elvezeti a közönséget. Autodidakta módon fejlesztettem.</p>
+        <span class="result">Más BSI-eseményekre is adaptálható</span>
+      </div>
+      <div class="stop">
+        <div class="wp">Résztvevői élmény</div>
+        <h3>Fotókeret</h3>
+        <p>Önállóan készítettem el, valódi, modern alternatívaként a régi, elavult oklevélrendszerünk helyett.</p>
+        <span class="result">Eseményenként több ezren használják</span>
+      </div>
+      <div class="stop">
+        <div class="wp">Sales &middot; partnerkapcsolatok</div>
+        <h3>Modern szponzori ajánlatok</h3>
+        <p>Támogattam a sales folyamatokat: a partnereknek kiajánlott szponzori ajánlatokat modern, webes formában pozicionáltuk.</p>
+      </div>
+    </div>
+    </div>
+    <p class="note">Piaci áron számolva az eseményhonlapokon és a Futaneten önállóan végzett fejlesztéseim <span>összértéke meghaladja a 12 millió forintot, bruttó</span>.</p>
+    <div class="callout">
+      <div class="k">Önként vállalt többletérték</div>
+      <h3>Ezeket a feladatokat senki nem várta el tőlem</h3>
+      <p>A kommunikációs munkakörömet ezek nélkül is ellátnám. A webes fejlesztéseket az első naptól magamtól vállaltam, és én hoztam be hozzájuk a tudást, a meglévő feladataim mellé. Közel négy év után úgy érzem korrektnek, ha a behozott érték ellenértékét megkapom.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="munkakor">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">02</span><h2>Az új munkakör három ága</h2></div>
+    <p class="lead-p">Javasolt megnevezés: <strong>AI- és digitális fejlesztési vezető</strong> (Head of AI &amp; Digital). A szerep a Krisszel egyeztetett keretekre épül, és az átállás végére a munkaidőm legalább 80%-a ide jut.</p>
+    <div class="grid" style="margin-top:28px">
+      <div class="cell">
+        <div class="k">1 &middot; Web</div>
+        <h3>17 honlap kezelése és fejlesztése</h3>
+        <p>Az összes BSI-eseményhonlap és a futanet.hu: üzemeltetés, fejlesztés, új funkciók. Egy kézben, egységes minőségben.</p>
+      </div>
+      <div class="cell">
+        <div class="k">2 &middot; Projektek</div>
+        <h3>Projektmenedzsment és szervezetfejlesztés</h3>
+        <p>A fejlesztések vezetése, a folyamatok áttekintése, és azoknak a projekteknek az elindítása, amelyekre eddig nem jutott erőforrás és fókusz. Scrum Master képesítésemmel facilitálom a közös munkát: rövid ciklusok, világos prioritások, látható haladás.</p>
+      </div>
+      <div class="cell">
+        <div class="k">3 &middot; AI</div>
+        <h3>AI-bevezetés és automatizálás</h3>
+        <p>Bogár Péterrel karöltve: az ismétlődő adminisztráció kiváltása, közös, ellenőrzött adatforrások, és a kollégák betanítása, hogy az AI a napi munka természetes része legyen. Péter kérésére az ő leterhelt munkáját is tehermentesíteném.</p>
+      </div>
+      <div class="cell wide">
+        <div class="k">Átadom</div>
+        <h3>Kommunikáció</h3>
+        <p>A kommunikációs feladatokat átadom. A dokumentációt és a betanítást vállalom, hogy az átadás zökkenőmentes legyen.</p>
+      </div>
+    </div>
+    <div class="callout">
+      <div class="k">Három szerep, egy fizetésért</div>
+      <h3>Marketinges, webfejlesztő és projektmenedzser egy kézben</h3>
+      <p>Ez a három terület máshol jellemzően három külön munkakör, három külön fizetéssel. Én egy személyben látom át a marketing céljait, építem meg a webes megoldást, és viszem végig a projektet a bevezetésig. Nincs átadás, félreértés és várakozás a területek között.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="megtakaritas">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">03</span><h2>Miért megtakarítás</h2></div>
+    <p class="lead-p">A javaslat tényleges többletköltsége az első évben kb. 2,3 millió forint. Ugyanez a munka piaci áron, külsős partnerrel kb. 8,8 millió forint lenne, ÁFÁ-val. Munkanaponként ez 10–15 ezer forint többletet jelent.</p>
+
+    <div class="compare" role="img" aria-label="Éves költség: külsős kiváltás kb. 8,8 millió Ft ÁFÁ-val, a javaslat tényleges többletköltsége az első évben kb. 2,3 millió Ft">
+      <div class="bar-row"><div class="bl"><b>~8,8 M Ft / év</b>Külsős kiváltás, bruttó (ÁFÁ-val)</div><div class="bar ext" style="width:100%"></div></div>
+      <div class="bar-row"><div class="bl"><b>~2,3 M Ft / első év</b>A javaslat tényleges többletköltsége</div><div class="bar me" style="width:26%"></div></div>
+    </div>
+
+    <div class="invest">
+      <div class="cap">Amit a 17 honlap ér: piaci újraépítési érték, egyszeri, bruttó</div>
+      <div class="row"><div class="desc">16 eseményhonlap<small>alaphangon legalább 500 000 Ft + ÁFA, azaz 635 000 Ft / honlap a mai piacon</small></div><div class="amt">10 160 000 Ft</div></div>
+      <div class="row"><div class="desc">futanet.hu<small>a beépített funkciókkal együtt</small></div><div class="amt">több millió Ft</div></div>
+      <div class="row sub"><div class="desc">Újraépítési érték összesen</div><div class="amt">12 000 000 Ft felett</div></div>
+      <div class="cap">Ha ugyanezt külsős partner végezné: éves költség, bruttó</div>
+      <div class="row"><div class="desc">17 honlap karbantartása<small>kb. 30 000 Ft / hó / oldal: frissítés, mentés, biztonság, kisebb módosítások</small></div><div class="amt">6 120 000 Ft / év</div></div>
+      <div class="row"><div class="desc">Fejlesztések<small>a 16 eseményhonlap 10,16 M Ft-os értéke közel 4 év alatt, éves átlagban</small></div><div class="amt">~2 700 000 Ft / év</div></div>
+      <div class="row sub"><div class="desc">Külsős kiváltás összesen</div><div class="amt">~8 820 000 Ft / év</div></div>
+      <div class="cap">A javaslat költsége a BSI-nek az első évben</div>
+      <div class="row"><div class="desc">Lépcsőzetes alapbér-emelés<small>3 hónap 1 100 000 Ft-on, 9 hónap 1 200 000 Ft-on, munkáltatói költséggel</small></div><div class="amt">~3 450 000 Ft</div></div>
+      <div class="row"><div class="desc">Felém megszűnő hétvégi túlórakifizetés<small>a 2026. február–októberi kifizetések alapján, munkáltatói költséggel</small></div><div class="amt">−1 140 000 Ft</div></div>
+      <div class="row sub"><div class="desc">Tényleges többletköltség az első évben</div><div class="amt">~2 310 000 Ft</div></div>
+      <div class="total">
+        <div class="lbl">Különbség a BSI javára<b>a külsős kiváltáshoz képest</b></div>
+        <div class="price">~6,5 M Ft / év<small>a javaslat a külsős ár harmadába sem kerül</small></div>
+      </div>
+    </div>
+    <p class="note">Minden összeg bruttó: a bérek bruttó bérként, a külsős árak 27% ÁFÁ-val együtt. A munkáltatói költség a bruttó bér és a 13% szociális hozzájárulási adó együtt. A számítás <span>nem tartalmazza</span> a kiállítói adminisztrációban, a tájékoztatási kérdésekben és az új AI-folyamatokban felszabaduló munkaórákat, sem a külsős partnerrel járó egyeztetési időt.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="piac">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">04</span><h2>Piaci viszonyítás</h2></div>
+    <p class="lead-p">A szerep a marketingvezetői és az AI-bevezetési vezetői munkakör metszetében van, ezért piaci értéke becslésem szerint <strong>kb. 1,4 millió forint</strong>. Ennél 14–21%-kal kevesebbet kérek.</p>
+    <div class="scale" role="img" aria-label="Havi bruttó bérek: átlagkereset 745 500 Ft, jelenlegi alapbérem 920 540 Ft, Marketing Manager 662 000–1 392 000 Ft, kért sáv 1,1–1,2 millió Ft, becsült piaci érték kb. 1,4 millió Ft, AI Implementation Manager 1,6–2,0 millió Ft">
+      <div class="srow "><div class="slab">Országos átlagkereset<small>2026. július &middot; 745 500 Ft</small></div><div class="track"><span class="dot " style="left:9.7%"></span></div></div>
+      <div class="srow "><div class="slab">Jelenlegi alapbérem<small>2026. március óta &middot; 920 540 Ft</small></div><div class="track"><span class="dot " style="left:21.4%"></span></div></div>
+      <div class="srow "><div class="slab">Marketing Manager, Magyarország<small>a munkavállalók 80%-a &middot; 662 000 – 1 392 000 Ft</small></div><div class="track"><span class="band " style="left:4.1%;width:48.7%"></span></div></div>
+      <div class="srow me"><div class="slab">Kért sáv<small>AI- és digitális fejlesztési vezető &middot; 1 100 000 – 1 200 000 Ft</small></div><div class="track"><span class="band me" style="left:33.3%;width:6.7%"></span></div></div>
+      <div class="srow mk"><div class="slab">A szerep becsült piaci értéke<small>a két terület metszetében &middot; ~1 400 000 Ft</small></div><div class="track"><span class="dot mk" style="left:53.3%"></span></div></div>
+      <div class="srow "><div class="slab">AI Implementation Manager, Budapest<small>lejárt álláshirdetés &middot; 1 600 000 – 2 000 000 Ft</small></div><div class="track"><span class="band " style="left:66.7%;width:26.6%"></span></div></div>
+      <div class="srow axis"><div class="slab"></div><div class="track ticks"><span style="left:0%">0,6 M</span><span style="left:26.7%">1,0 M</span><span style="left:53.3%">1,4 M</span><span style="left:80%">1,8 M</span></div></div>
+    </div>
+    <p class="note">Egy külsős AI- vagy fejlesztési vezető felvétele ennél magasabb bérrel, toborzási költséggel és hónapokig tartó betanulással járna. Én ismerem a BSI eseményeit, csapatát és rendszereit, és az első naptól eredményt tudok hozni.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="bertortenet">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">05</span><h2>Bértörténet</h2></div>
+    <p class="lead-p">Egyik emelésem sem a feladatköröm bővüléséhez kapcsolódott. 2023 decemberében az inflációt követte a bérem, 2024 óta pedig az országos átlagkereset-növekedés kb. 60%-át kaptam meg: +18,9%-ot a +32,8%-kal szemben.</p>
+    <div class="tl">
+      <div class="row-tl"><div class="wk">2023.02.</div><div class="ph">Belépés<small>bruttó alapbér</small></div><div class="v">661 600 Ft</div></div>
+      <div class="row-tl"><div class="wk">2023.12.</div><div class="ph">Inflációkövető emelés<small>a 2023-as éves infláció 17,6% volt</small></div><div class="v up">774 440 Ft &nbsp;+17,1%</div></div>
+      <div class="row-tl"><div class="wk">2024.04.</div><div class="ph">Éves általános emelés</div><div class="v up">827 070 Ft &nbsp;+6,8%</div></div>
+      <div class="row-tl"><div class="wk">2025.04.</div><div class="ph">Éves általános emelés</div><div class="v up">876 700 Ft &nbsp;+6,0%</div></div>
+      <div class="row-tl"><div class="wk">2026.03.</div><div class="ph">Éves általános emelés</div><div class="v up">920 540 Ft &nbsp;+5,0%</div></div>
+    </div>
+
+    <div class="cmpwrap">
+      <table class="cmp">
+        <caption>Az emeléseim az inflációhoz és az országos bérnövekedéshez képest</caption>
+        <thead><tr><th scope="col">Emelés</th><th scope="col">Az én emelésem</th><th scope="col">Infláció</th><th scope="col">Országos bruttó átlagkereset</th></tr></thead>
+        <tbody>
+          <tr><td>2023.12.</td><td><b>+17,1%</b></td><td>17,6%<small>2023 átlaga</small></td><td>–</td></tr>
+          <tr><td>2024.04.</td><td><b>+6,8%</b></td><td>3,7%<small>2024 átlaga</small></td><td>+13,2%<small>2024</small></td></tr>
+          <tr><td>2025.04.</td><td><b>+6,0%</b></td><td>4,4%<small>2025 átlaga</small></td><td>+9,1%<small>2025. jan.–okt.</small></td></tr>
+          <tr><td>2026.03.</td><td><b>+5,0%</b></td><td>2,0%<small>2026. október</small></td><td>+7,5%<small>2026. július</small></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <div class="k">Ami az új szerepben kiesik &middot; bruttó</div>
+      <h3>A hétvégi túlórák nagy része megszűnik</h3>
+      <div class="chips">
+        <span class="chip">2026.02. <b>202 250 Ft</b></span>
+        <span class="chip">2026.03. <b>164 511 Ft</b></span>
+        <span class="chip">2026.06. <b>218 045 Ft</b></span>
+        <span class="chip">2026.08. <b>101 053 Ft</b></span>
+        <span class="chip">2026.09. <b>151 579 Ft</b></span>
+        <span class="chip">2026.10. <b>170 677 Ft</b></span>
+      </div>
+      <p>Idén februártól októberig ez összesen kb. <strong>1 008 000 Ft bruttó</strong> plusz bevétel volt, a nettó kifizetésekből visszaszámolva. A kommunikáció átadásával ennek nagy része megszűnik, így a kért emelés egy része ezt a kiesést pótolja.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="projektek">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">06</span><h2>Ami az új szerepben elindul</h2></div>
+    <p class="lead-p">Ezekre a projektekre eddig nem jutott kapacitás. Az első már kipróbálható.</p>
+    <div class="proj">
+      <div class="pcard hot"><div class="k">Első projekt &middot; kész prototípus</div><h3>Eseményagy</h3><p>Közös, ellenőrzött eseményadatokból frissülő webes tájékoztatás, egy helyen karbantartva. A cél, hogy az eseményinformációink mindig naprakészek legyenek, kevesebbet hibázzunk, és kevesebb legyen a belső frusztráció. A prototípus már elkészült, a megbeszélésen említettem is.</p></div>
+      <div class="pcard"><div class="k">Automatizálás</div><h3>Kiállítói adatlapok automatizálása</h3><p>A még kézi, Word- és Excel-alapú adatbekérés kiváltása minden eseményen, a Wizz Air Budapest Félmaratonon bevált minta alapján.</p></div>
+      <div class="pcard"><div class="k">AI</div><h3>Ügyfélszolgálati e-mailek AI-elemzése</h3><p>A levelezés mintázatainak feltárása: mik a leggyakoribb kérdések, és melyek előzhetők meg jobb tájékoztatással. Ebből később tudásbázis épülhet.</p></div>
+      <div class="pcard"><div class="k">Web</div><h3>Új eredménylista oldal</h3><p>Modern, gyors, mobilon is jól használható eredménylista-felület a résztvevőknek.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="javaslat">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">07</span><h2>A javaslat</h2></div>
+    <p class="lead-p">A piaci értéknél tudatosan kevesebbet kérek, mert hosszú távon a BSI-nél képzelem el a szakmai jövőmet, és a közös építkezést fontosabbnak tartom a maximális bérnél. A szerep vezetői feladatokat is jelent: azt kérted, hogy fogjam össze a fejlesztéseket és a folyamatokat. Ennek ellenére nem vezetői fizetést kérek, hanem annál jóval kevesebbet. Ha csak a pénz érdekelne, már 2023-ban elmentem volna: két hónappal a BSI-s szerződésem aláírása után marketingkommunikációs vezetői ajánlatot kaptam, és maradtam.</p>
+    <div class="invest">
+      <div class="row"><div class="desc">Jelenlegi alapbér<small>bruttó</small></div><div class="amt">920 540 Ft / hó</div></div>
+      <div class="row"><div class="desc">Juttatások<small>BKV-bérlet 9 450 Ft / hó, egészségpénztár 15 000 Ft / hó, SZÉP-kártya 400 000 Ft / év</small></div><div class="amt tag">Változatlan</div></div>
+      <div class="row"><div class="desc">1. lépcső &middot; 2027. január–március<small>a szerep indulásától, a sáv alja</small></div><div class="amt">1 100 000 Ft / hó</div></div>
+      <div class="row"><div class="desc">2. lépcső &middot; 2027. áprilistól<small>a 90 napos értékelés után, ha a vállalt mérföldkövek teljesültek</small></div><div class="amt">1 200 000 Ft / hó</div></div>
+      <div class="row strike"><div class="desc">A szerep becsült piaci értéke<small>a 04-es pont alapján, bruttó</small></div><div class="amt">~1 400 000 Ft / hó</div></div>
+      <div class="total">
+        <div class="lbl">Javasolt bérsáv, bruttó<b>AI- és digitális fejlesztési vezető</b></div>
+        <div class="price">1,1 – 1,2 M Ft / hó<small>14–21%-kal a piaci érték alatt &middot; a sáv felső része eredményhez kötve</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:12px">
+  <div class="wrap">
+    <div class="guarantee">
+      <div class="seal"><div class="p">12</div><div class="t">HÓNAPOS<br>CÉL</div></div>
+      <div>
+        <h3>Mérhető vállalás</h3>
+        <p>A 90. napon közösen értékeljük, mit vállaltam és mi teljesült, és csak ezután lép életbe a 2. lépcső. Az első év célja, hogy kimutatható megtakarítást hozzak munkaórában és forintban, legalább az emelés éves költségének megfelelő értékben.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="dontes">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">08</span><h2>Döntési lap</h2></div>
+    <p class="lead-p">Három lehetőség, bruttó alapbérben. Az A-t javaslom, mert ebben a bér felső része csak az eredmények után jár.</p>
+    <div class="opts">
+      <div class="opt rec"><div class="badge">Ajánlott</div><div class="ok">A &middot; Lépcsőzetes</div><div class="op">1,1 → 1,2 M Ft</div><p>Január–március 1 100 000 Ft, áprilistól 1 200 000 Ft, a 90 napos értékelés után.</p><div class="oc">Első évi többletköltség<b>~3,5 M Ft</b>munkáltatói költségben</div></div>
+      <div class="opt"><div class="ok">B &middot; Fix</div><div class="op">1,15 M Ft</div><p>Januártól egységesen 1 150 000 Ft, eredményhez kötött lépcső nélkül.</p><div class="oc">Első évi többletköltség<b>~3,1 M Ft</b>munkáltatói költségben</div></div>
+      <div class="opt"><div class="ok">C &middot; Fix, magasabb</div><div class="op">1,25 M Ft</div><p>Januártól egységesen 1 250 000 Ft, értékelési feltétel nélkül.</p><div class="oc">Első évi többletköltség<b>~4,5 M Ft</b>munkáltatói költségben</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="atallas">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">09</span><h2>Az átállás 90 napja</h2></div>
+    <div class="tl">
+      <div class="row-tl"><div class="wk">1. hónap</div><div class="ph">Közös prioritások, egy kiválasztott folyamat alapmérése, az adatgazdák és a kommunikációs feladatok átvevőinek kijelölése</div></div>
+      <div class="row-tl"><div class="wk">2. hónap</div><div class="ph">Kipróbálható prototípus, szakmai tesztelés, a korábbi napi feladataim fokozatos átadása</div></div>
+      <div class="row-tl"><div class="wk">3. hónap</div><div class="ph">A ráfordítás és a minőség értékelése, döntés a használatba vételről és a következő fejlesztésekről</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="lepesek">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">10</span><h2>Következő lépések</h2></div>
+    <ol class="steps">
+      <li><strong>Visszajelzés.</strong> Ha az irány jó, bármelyik pontot szívesen átbeszélem.</li>
+      <li><strong>Írásos megállapodás.</strong> Rögzítjük a munkakört, a bérezést, az indulás dátumát és a 90 napos értékelés időpontját.</li>
+      <li><strong>Indulás 2027 januárjában</strong>, az első hónap közös prioritásaival.</li>
+    </ol>
+    <div class="callout">
+      <div class="k">Miért most</div>
+      <h3>A tavaszi szezon előkészítése januárban indul</h3>
+      <p>Ha a szerep januárban elindulhat, a tavaszi eseményeken, köztük a Vivicittán már az új folyamatok működnek. Ehhez 2026 decemberében kellene döntenünk. Ha a döntés csúszik, a 2027-es tavaszi szezon még a régi, kézi folyamatokkal indul.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <p class="note">Források: infláció <a href="https://www.economx.hu/magyar-gazdasag/2026/04/27/ksh-inflacio-elelmiszerarak-energia-szolgaltatasok/">2023–2025 (KSH, Economx)</a>, <a href="https://www.mnb.hu/letoltes/inflacios-alapmutato-aktualis-havi-ertekeles.pdf">2026. október (MNB)</a>; átlagkereset <a href="https://infostart.hu/gazdasag/2025/02/25/ksh-a-brutto-atlagkereset-727-700-a-netto-500-500-forint">2024 (KSH, Infostart)</a>, <a href="https://www.economx.hu/magyar-gazdasag/2025/12/19/berek-keresetek-atlag-magyar-ksh-fizetes-821223/">2025. jan.–okt. (KSH, Economx)</a>, <a href="https://adozona.hu/altalanos/KSH_a_brutto_atlagkereset_745_500_forint_vo_Z96QRJ">2026. július (KSH, Adózóna)</a>. Piaci bérek: <a href="https://www.fizetesek.hu/en/salaryinfo/management/marketing-manager">Marketing Manager (Fizetesek.hu)</a>, <a href="https://wise.jobs/job/ai-implementation-manager-in-budapest-jid-2350">AI Implementation Manager (wise.jobs)</a>. A béradatok a saját bérnyilvántartásomból származnak.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fb">Gyenes Donát</div>
+    <div class="fn">Szerepkör- és bérjavaslat &middot; BSI &middot; 2026</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.toc a'));
+  var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+  function setOn(id){links.forEach(function(a){a.classList.remove('on');});var a=map[id];if(a){a.classList.add('on');try{a.scrollIntoView({block:'nearest',inline:'center'});}catch(e){}}}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)setOn(e.target.id);});},{rootMargin:'-130px 0px -60% 0px'});
+    Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});
+  }
+})();
+</script>
+</body>
+</html>
