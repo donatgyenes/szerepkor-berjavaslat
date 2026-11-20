@@ -191,11 +191,11 @@
   .q.lit figcaption{color:#8EA1B3}
   .proj{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
   .pcard{background:var(--white);border:1px solid var(--ice);border-radius:4px;padding:22px 24px}
-  .pcard.hot{grid-column:1/-1;border-left:4px solid var(--signal)}
+  .pcard.hot{border-left:4px solid var(--signal)}
   .pcard .k{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:700}
   .pcard h3{font-size:19px;margin:8px 0}
   .pcard p{margin:0;font-size:14.5px;color:var(--muted)}
-  .opts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px;align-items:stretch}
+  .opts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px;align-items:stretch}
   .opt{position:relative;background:var(--white);border:1px solid var(--ice);border-radius:6px;padding:26px 22px 22px;display:flex;flex-direction:column}
   .opt.rec{border:2px solid var(--signal);box-shadow:0 8px 28px rgba(29,95,214,.14)}
   .opt .badge{position:absolute;top:-12px;left:20px;background:var(--signal);color:#fff;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:3px;font-weight:700}
@@ -286,6 +286,23 @@
     .dark,.total{-webkit-print-color-adjust:exact;print-color-adjust:exact}
     .fade{animation:none}
   }
+
+  details.more{margin-top:20px;background:var(--white);border:1px solid var(--ice);border-radius:4px}
+  details.more summary{cursor:pointer;list-style:none;padding:16px 22px;font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  details.more summary::-webkit-details-marker{display:none}
+  details.more summary::after{content:"+";font-size:18px;line-height:1}
+  details.more[open] summary::after{content:"\2013"}
+  details.more summary:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+  details.more .inner{padding:0 22px 22px}
+  details.more .invest{margin-top:0}
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+  .vs .v{border-radius:4px;padding:20px 22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+  .vs .v b{display:block;font-family:var(--font-display);font-size:clamp(26px,4vw,36px);color:#fff;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+  .vs .v span{display:block;margin-top:6px;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#8EA1B3}
+  .vs .v.me{background:var(--signal);border-color:var(--signal)}
+  .vs .v.me span{color:#DCE7FB}
+  .netline{font-family:var(--font-mono);font-size:12px;color:var(--steel);margin-top:3px}
+  @media (max-width:640px){.vs{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -296,39 +313,35 @@
     <div class="tag">Kocsis Árpád részére</div>
   </div>
 </div>
-
 <nav class="toc" aria-label="Tartalom">
     <div class="wrap">
-      <a href="#kerte">Kérés</a>
       <a href="#eredmenyek">Eredmények</a>
       <a href="#munkakor">Munkakör</a>
       <a href="#megtakaritas">Megtakarítás</a>
       <a href="#piac">Piac</a>
-      <a href="#bertortenet">Bértörténet</a>
       <a href="#projektek">Projektek</a>
       <a href="#javaslat">Javaslat</a>
-      <a href="#dontes">Döntési lap</a>
-      <a href="#atallas">Átállás</a>
-      <a href="#lepesek">Lépések</a>
+      <a href="#dontes">Döntés</a>
+      <a href="#hogyan-tovabb">Hogyan tovább</a>
     </div>
 </nav>
 
 <header class="hero">
   <div class="wrap fade">
     <div class="eyebrow">Szerepkör- és bérjavaslat &middot; BSI &middot; 2026. november</div>
-    <h1>Egy emelés, ami <span class="em">megtakarítást</span> hoz a BSI-nek.</h1>
-    <p class="lede">Közel négy éve fejlesztem a BSI digitális működését, eddig a napi feladataim mellett. Ez a javaslat arról szól, mi történik, ha erre kijelölt szerep, idő és felelősség jut: kevesebb kézi munka, kevesebb külsős költség és gyorsabb fejlesztések.</p>
+    <h1>Egy szerep, ami <span class="em">többet hoz</span>, mint amennyibe kerül.</h1>
+    <p class="lede">Közel négy éve fejlesztem a BSI digitális működését a napi feladataim mellett. Ez a javaslat arról szól, mi történik, ha erre kijelölt szerep, idő és felelősség jut.</p>
     <div class="meta">
       <div>Címzett<b>Kocsis Árpád</b></div>
       <div>Készítette<b>Gyenes Donát</b></div>
-      <div>Dátum<b>2026. november 19.</b></div>
+      <div>Dátum<b>2026. november 20.</b></div>
       <div>Javasolt indulás<b>2027. január</b></div>
     </div>
     <div class="statstrip">
+      <div class="s hot"><div class="n">1,1–1,2 M Ft</div><div class="l">kért bérsáv / hó,<br>bruttó</div></div>
       <div class="s"><div class="n">~1,4 M Ft</div><div class="l">a szerep becsült<br>piaci értéke / hó</div></div>
-      <div class="s hot"><div class="n">1,1–1,2 M Ft</div><div class="l">a kért bérsáv / hó,<br>bruttó</div></div>
       <div class="s"><div class="n">~6,5 M Ft</div><div class="l">évente a BSI javára<br>a külsős piaci árhoz képest</div></div>
-      <div class="s"><div class="n">17</div><div class="l">honlap házon belül<br>kezelve és fejlesztve</div></div>
+      <div class="s"><div class="n">17</div><div class="l">honlap egy kézben</div></div>
     </div>
   </div>
 </header>
@@ -337,21 +350,15 @@
   <div class="wrap">
     <div class="letter">
       <p>Szia Árpi!</p>
-      <p>Köszönöm a mai beszélgetést, és hogy Krisszel együtt nyitottak vagytok a szerepváltásra. Megkérdezted, milyen jövedelemmel lennék elégedett. Egy bérsávot javaslok, és olyan felépítést, amelyben a sáv felső része csak akkor jár, ha az eredmények is megvannak. Leírtam azt is, miért gondolom, hogy ez a cégnek is jó üzlet.</p>
+      <p>Köszönöm a csütörtöki beszélgetést, és hogy Krisszel együtt nyitottak vagytok a szerepváltásra. Megkérdezted, milyen jövedelemmel lennék elégedett. Egy bérsávot javaslok, és olyan felépítést, amelyben a sáv felső része csak akkor jár, ha az eredmények is megvannak. Leírtam azt is, miért gondolom, hogy ez a cégnek is jó üzlet.</p>
       <p>2023 februárja óta dolgozom a BSI-nél. Ez idő alatt a kommunikációs munkám mellett, saját kezdeményezésből építettem fel és fejlesztettem a BSI eseményhonlapjait, megújítottam a Futanetet, és olyan folyamatokat automatizáltam, amelyek korábban eseményenként órákat vittek el. Ezek a fejlesztések eddig a napi feladatok közötti résekben készültek.</p>
-      <p>Az új szerepben erre kijelölt időm és felelősségem lenne. Amit eddig mellékesen csináltam, azt ezentúl tudatosan és rendszeresen csinálnám, mérhető eredményekkel. Reális szeretnék maradni, ezért minden szám, amire hivatkozom, a saját munkámból vagy a béradataimból származik.</p>
-      <p>Az általam fejlesztett funkciókért és a szellemi munkámért eddig soha nem kértem külön díjat. Most is csak azt szeretném, ha a fizetésem arányban lenne az elvárt feladatmennyiséggel.</p>
+      <p>Az új szerepben erre kijelölt időm és felelősségem lenne. Amit eddig mellékesen csináltam, azt ezentúl tudatosan és rendszeresen csinálnám, mérhető eredményekkel. Reális szeretnék maradni, ezért minden számot saját adattal vagy forrással támasztottam alá.</p>
+      <p>Az általam fejlesztett funkciókért és a szellemi munkámért eddig soha nem kértem külön díjat. Most is csak azt szeretném, ha a fizetésem arányban lenne az elvárt feladatmennyiséggel, értékteremtéssel és felelősséggel.</p>
       <p style="margin-bottom:0">Köszönöm, hogy átolvasod. Bármelyik pontot szívesen átbeszélem.</p>
       <div class="sig">Donát</div>
       <div class="sigsub">Gyenes Donát</div>
     </div>
-  </div>
-</section>
-
-<section style="padding-top:0" id="kerte">
-  <div class="wrap">
-    <div class="sec-head"><span class="num">&ldquo;</span><h2>Amit te kértél</h2></div>
-    <div class="quotes one">
+    <div class="quotes one" style="margin-top:20px">
       <figure class="q"><blockquote>Arra kértél, hogy legyek a szövetségesed.</blockquote><figcaption>telefon, 2026. október</figcaption></figure>
     </div>
     <p class="note">Ez a javaslat erre a gondolatra épül: <span>egy szövetséges, aki a működés egészét fejleszti, reális áron.</span></p>
@@ -360,64 +367,49 @@
 
 <hr class="divider">
 
-<section>
-  <div class="wrap">
-    <div class="dark">
-      <div class="glow"></div>
-      <div class="eyebrow">A kérdés fordítva</div>
-      <p class="big">Mennyibe kerülne ugyanez a munka <span class="em">külsős partnerrel?</span></p>
-      <p>A BSI 17 honlapját ma házon belül kezelem és fejlesztem. Egy ügynökség ezért havidíjat és projektárat számolna, és minden módosításnál a többi ügyfele mögött állnánk sorban.</p>
-      <p style="margin-bottom:0">Nálam ugyanez a munka a fizetésem része, és a fejlesztések gyorsan elkészülnek, mert ismerem az eseményeket, a csapatot és a rendszereket. A javasolt emelés első éve <strong>a harmadába sem kerül annak</strong>, amit ugyanezért piaci áron, külsős partnernek fizetnénk. A részletes számítás a 03-as pontban található.</p>
-    </div>
-  </div>
-</section>
-
 <section id="eredmenyek">
   <div class="wrap">
     <div class="sec-head"><span class="num">01</span><h2>Amit közel négy év alatt felépítettem</h2></div>
     <p class="lead-p">Mind saját kezdeményezésből készült, a napi feladataim mellett, és mind működik ma is.</p>
     <div class="route">
       <div class="stop">
-        <div class="wp">Web &middot; folyamatos</div>
-        <h3>A BSI eseményhonlapjai és a futanet.hu</h3>
-        <p>Felépítettem és fejlesztem a BSI eseményhonlapjait: egyedi widgetek, versenyinformációk. Ma 17 honlap kezelése és fejlesztése van a kezemben.</p>
-        <span class="result">17 honlap egy kézben</span>
+        <div class="wp">Web</div>
+        <h3>17 honlap: a BSI eseményhonlapjai és a futanet.hu</h3>
+        <p>Felépítettem és fejlesztem a BSI eseményhonlapjait egyedi widgetekkel és versenyinformációkkal.</p>
       </div>
       <div class="stop">
-        <div class="wp">Web &middot; résztvevői felület</div>
+        <div class="wp">Web &middot; 2026 eleje</div>
         <h3>Az új Futanet</h3>
-        <p>A Futanet a BSI egyik legfontosabb, résztvevők felé látható digitális felülete. Az elmúlt 8 évben a cég több millió forintot költött külsős fejlesztőcsapatokra, de egyiküknek sem sikerült megépítenie. Végül egy személyben, 3 hónap alatt készítettem el 2026 elején, a napi munkám mellett.</p>
+        <p>Az elmúlt 8 évben a cég több millió forintot költött külsős fejlesztőcsapatokra, de egyiküknek sem sikerült megépítenie. Végül egy személyben, 3 hónap alatt készítettem el, a napi munkám mellett.</p>
         <span class="result">3 hónap, egy személyben</span>
       </div>
       <div class="stop">
         <div class="wp">Automatizálás &middot; Wizz Air Budapest Félmaraton</div>
         <h3>Kiállítói adminisztráció</h3>
-        <p>Közel 45 kiállító adatbekérését alakítottam át. Korábban e-mailes adatlapokból Réka kézzel rögzített Excelbe, majd én kézzel töltöttem a weboldalt. Ma egy formátumot és karakterszámot ellenőrző űrlap gyűjti az adatokat, és Réka jóváhagyása után a tartalom automatikusan megjelenik a weben. A felszabadult munkaórák értékteremtő feladatokra fordíthatók, így a megtakarítás közvetve bevételt is termel a cégnek.</p>
+        <p>Közel 45 kiállító adatbekérése ma egy ellenőrző űrlapon fut, és Réka jóváhagyása után automatikusan megjelenik a weben. A felszabadult munkaórák értékteremtő feladatokra fordíthatók.</p>
         <span class="result">Eseményenként 6–8 óra helyett néhány perc</span>
       </div>
       <div class="stop">
         <div class="wp">Résztvevői élmény &middot; SPAR Budapest Maraton</div>
         <h3>Interaktív versenynapi felület</h3>
-        <p>Élő közvetítés, térkép, időjárás, program és útlezárások egy helyen, mobilon is. A szurkolói kalkulátor a versenyszám, célidő és rajtadatok alapján személyre szabott menetrendet ad. Csökkenti az ismétlődő tájékoztatási kérdéseket, és a kiállítói kínálathoz, a Fotókerethez és a virtuális nevezéshez is elvezeti a közönséget. Autodidakta módon fejlesztettem.</p>
-        <span class="result">Más BSI-eseményekre is adaptálható</span>
+        <p>Élő közvetítés, térkép, program és szurkolói kalkulátor egy helyen, mobilon is. Csökkenti az ismétlődő kérdéseket, és a kiállítókhoz, a Fotókerethez és a virtuális nevezéshez is elvezeti a közönséget. Autodidakta módon fejlesztettem.</p>
       </div>
       <div class="stop">
         <div class="wp">Résztvevői élmény</div>
         <h3>Fotókeret</h3>
-        <p>Önállóan készítettem el, valódi, modern alternatívaként a régi, elavult oklevélrendszerünk helyett.</p>
+        <p>Modern alternatíva a régi, elavult oklevélrendszerünk helyett.</p>
         <span class="result">Eseményenként több ezren használják</span>
       </div>
       <div class="stop">
-        <div class="wp">Sales &middot; partnerkapcsolatok</div>
+        <div class="wp">Sales</div>
         <h3>Modern szponzori ajánlatok</h3>
-        <p>Támogattam a sales folyamatokat: a partnereknek kiajánlott szponzori ajánlatokat modern, webes formában pozicionáltuk.</p>
+        <p>A partnereknek kiajánlott szponzori ajánlatokat modern, webes formában pozicionáltuk.</p>
       </div>
     </div>
-    <p class="note">Piaci áron számolva az eseményhonlapokon és a Futaneten önállóan végzett fejlesztéseim <span>összértéke meghaladja a 12 millió forintot, bruttó</span>.</p>
     <div class="callout">
       <div class="k">Önként vállalt többletérték</div>
       <h3>Ezeket a feladatokat senki nem várta el tőlem</h3>
-      <p>A kommunikációs munkakörömet ezek nélkül is ellátnám. A webes fejlesztéseket az első naptól magamtól vállaltam, és én hoztam be hozzájuk a tudást, a meglévő feladataim mellé. Közel négy év után úgy érzem korrektnek, ha a behozott érték ellenértékét megkapom.</p>
+      <p>A kommunikációs munkakörömet ezek nélkül is ellátnám. A webes fejlesztéseket az első naptól magamtól vállaltam, és én hoztam be hozzájuk a tudást. Közel négy év után úgy érzem korrektnek, ha a behozott érték ellenértékét megkapom.</p>
     </div>
   </div>
 </section>
@@ -427,33 +419,18 @@
 <section id="munkakor">
   <div class="wrap">
     <div class="sec-head"><span class="num">02</span><h2>Az új munkakör három ága</h2></div>
-    <p class="lead-p">Javasolt megnevezés: <strong>AI- és digitális fejlesztési vezető</strong> (Head of AI &amp; Digital). A szerep a Krisszel egyeztetett keretekre épül, és az átállás végére a munkaidőm legalább 80%-a ide jut.</p>
-    <div class="grid" style="margin-top:28px">
-      <div class="cell">
-        <div class="k">1 &middot; Web</div>
-        <h3>17 honlap kezelése és fejlesztése</h3>
-        <p>Az összes BSI-eseményhonlap és a futanet.hu: üzemeltetés, fejlesztés, új funkciók. Egy kézben, egységes minőségben.</p>
-      </div>
-      <div class="cell">
-        <div class="k">2 &middot; Projektek</div>
-        <h3>Projektmenedzsment és szervezetfejlesztés</h3>
-        <p>A fejlesztések vezetése, a folyamatok áttekintése, és azoknak a projekteknek az elindítása, amelyekre eddig nem jutott erőforrás és fókusz. Scrum Master képesítésemmel facilitálom a közös munkát: rövid ciklusok, világos prioritások, látható haladás.</p>
-      </div>
-      <div class="cell">
-        <div class="k">3 &middot; AI</div>
-        <h3>AI-bevezetés és automatizálás</h3>
-        <p>Bogár Péterrel karöltve: az ismétlődő adminisztráció kiváltása, közös, ellenőrzött adatforrások, és a kollégák betanítása, hogy az AI a napi munka természetes része legyen. Péter kérésére az ő leterhelt munkáját is tehermentesíteném.</p>
-      </div>
-      <div class="cell wide">
-        <div class="k">Átadom</div>
-        <h3>Kommunikáció</h3>
-        <p>A kommunikációs feladatokat átadom. A dokumentációt és a betanítást vállalom, hogy az átadás zökkenőmentes legyen.</p>
-      </div>
+    <p class="lead-p">Javasolt megnevezés: <strong>AI- és digitális fejlesztési vezető</strong> (Head of AI &amp; Digital). Az átállás végére a munkaidőm legalább 80%-a ide jut.</p>
+    <p class="note" style="margin-top:10px">Jelentési vonal: <span>a napi munkában Krisztiánnak, a stratégiai projektekben neked.</span></p>
+    <div class="grid" style="margin-top:24px">
+      <div class="cell"><div class="k">1 &middot; Web</div><h3>17 honlap kezelése és fejlesztése</h3><p>Az összes BSI-eseményhonlap és a futanet.hu, egy kézben, egységes minőségben.</p></div>
+      <div class="cell"><div class="k">2 &middot; Projektek</div><h3>Projektmenedzsment és szervezetfejlesztés</h3><p>A fejlesztések vezetése, a folyamatok áttekintése, és az eddig elmaradt projektek elindítása. Scrum Master képesítésemmel facilitálom a közös munkát.</p></div>
+      <div class="cell"><div class="k">3 &middot; AI</div><h3>AI-bevezetés és automatizálás</h3><p>Bogár Péterrel karöltve. Péter kérésére az ő leterhelt munkáját is tehermentesíteném.</p></div>
+      <div class="cell wide"><div class="k">Átadom</div><h3>Kommunikáció</h3><p>A kommunikációt egy gyakornok viszi tovább, Renato támogatásával, akivel eddig együtt vittük a social media kommunikációt. Erről Krisztiánnal és Renatóval már egyeztettünk. A dokumentációt és a betanítást vállalom, hogy az átadás zökkenőmentes legyen.</p></div>
     </div>
     <div class="callout">
       <div class="k">Három szerep, egy fizetésért</div>
       <h3>Marketinges, webfejlesztő és projektmenedzser egy kézben</h3>
-      <p>Ez a három terület máshol jellemzően három külön munkakör, három külön fizetéssel. Én egy személyben látom át a marketing céljait, építem meg a webes megoldást, és viszem végig a projektet a bevezetésig. Nincs átadás, félreértés és várakozás a területek között.</p>
+      <p>Máshol ez három külön munkakör, három fizetéssel. Én egy személyben látom át a célt, építem meg a megoldást, és viszem végig a bevezetésig.</p>
     </div>
   </div>
 </section>
@@ -463,32 +440,31 @@
 <section id="megtakaritas">
   <div class="wrap">
     <div class="sec-head"><span class="num">03</span><h2>Miért megtakarítás</h2></div>
-    <p class="lead-p">A javaslat tényleges többletköltsége az első évben kb. 2,3 millió forint. Ugyanez a munka piaci áron, külsős partnerrel kb. 8,8 millió forint lenne, ÁFÁ-val. Munkanaponként ez 10–15 ezer forint többletet jelent.</p>
-
-    <div class="compare" role="img" aria-label="Éves költség: külsős kiváltás kb. 8,8 millió Ft ÁFÁ-val, a javaslat tényleges többletköltsége az első évben kb. 2,3 millió Ft">
-      <div class="bar-row"><div class="bl"><b>~8,8 M Ft / év</b>Külsős kiváltás, bruttó (ÁFÁ-val)</div><div class="bar ext" style="width:100%"></div></div>
-      <div class="bar-row"><div class="bl"><b>~2,3 M Ft / első év</b>A javaslat tényleges többletköltsége</div><div class="bar me" style="width:26%"></div></div>
-    </div>
-
-    <div class="invest">
-      <div class="cap">Amit a 17 honlap ér: piaci újraépítési érték, egyszeri, bruttó</div>
-      <div class="row"><div class="desc">16 eseményhonlap<small>alaphangon legalább 500 000 Ft + ÁFA, azaz 635 000 Ft / honlap a mai piacon</small></div><div class="amt">10 160 000 Ft</div></div>
-      <div class="row"><div class="desc">futanet.hu<small>a beépített funkciókkal együtt</small></div><div class="amt">több millió Ft</div></div>
-      <div class="row sub"><div class="desc">Újraépítési érték összesen</div><div class="amt">12 000 000 Ft felett</div></div>
-      <div class="cap">Ha ugyanezt külsős partner végezné: éves költség, bruttó</div>
-      <div class="row"><div class="desc">17 honlap karbantartása<small>kb. 30 000 Ft / hó / oldal: frissítés, mentés, biztonság, kisebb módosítások</small></div><div class="amt">6 120 000 Ft / év</div></div>
-      <div class="row"><div class="desc">Fejlesztések<small>a 16 eseményhonlap 10,16 M Ft-os értéke közel 4 év alatt, éves átlagban</small></div><div class="amt">~2 700 000 Ft / év</div></div>
-      <div class="row sub"><div class="desc">Külsős kiváltás összesen</div><div class="amt">~8 820 000 Ft / év</div></div>
-      <div class="cap">A javaslat költsége a BSI-nek az első évben</div>
-      <div class="row"><div class="desc">Lépcsőzetes alapbér-emelés<small>3 hónap 1 100 000 Ft-on, 9 hónap 1 200 000 Ft-on, munkáltatói költséggel</small></div><div class="amt">~3 450 000 Ft</div></div>
-      <div class="row"><div class="desc">Felém megszűnő hétvégi túlórakifizetés<small>a 2026. február–októberi kifizetések alapján, munkáltatói költséggel</small></div><div class="amt">−1 140 000 Ft</div></div>
-      <div class="row sub"><div class="desc">Tényleges többletköltség az első évben</div><div class="amt">~2 310 000 Ft</div></div>
-      <div class="total">
-        <div class="lbl">Különbség a BSI javára<b>a külsős kiváltáshoz képest</b></div>
-        <div class="price">~6,5 M Ft / év<small>a javaslat a külsős ár harmadába sem kerül</small></div>
+    <div class="dark">
+      <div class="glow"></div>
+      <div class="eyebrow">Ugyanez a munka, évente</div>
+      <p class="big">A javaslat első éve <span class="em">a harmadába sem kerül</span> annak, amit piaci áron külsős partnernek fizetnénk.</p>
+      <div class="vs">
+        <div class="v"><b>~8,8 M Ft</b><span>külsős partner, piaci áron</span></div>
+        <div class="v me"><b>~2,3 M Ft</b><span>a javaslat tényleges többletköltsége</span></div>
       </div>
     </div>
-    <p class="note">Minden összeg bruttó: a bérek bruttó bérként, a külsős árak 27% ÁFÁ-val együtt. A munkáltatói költség a bruttó bér és a 13% szociális hozzájárulási adó együtt. A számítás <span>nem tartalmazza</span> a kiállítói adminisztrációban, a tájékoztatási kérdésekben és az új AI-folyamatokban felszabaduló munkaórákat, sem a külsős partnerrel járó egyeztetési időt.</p>
+    <details class="more">
+      <summary>Részletes számítás</summary>
+      <div class="inner">
+        <div class="invest">
+          <div class="cap">Ha ugyanezt külsős partner végezné: éves költség, bruttó</div>
+          <div class="row"><div class="desc">17 honlap karbantartása<small>kb. 30 000 Ft / hó / oldal</small></div><div class="amt">6 120 000 Ft</div></div>
+          <div class="row"><div class="desc">Fejlesztések<small>16 eseményhonlap piaci értéke (legalább 500 000 Ft + ÁFA / honlap) közel 4 év alatt, éves átlagban</small></div><div class="amt">~2 700 000 Ft</div></div>
+          <div class="row sub"><div class="desc">Külsős kiváltás összesen</div><div class="amt">~8 820 000 Ft</div></div>
+          <div class="cap">A javaslat költsége az első évben, munkáltatói költségben</div>
+          <div class="row"><div class="desc">Lépcsőzetes alapbér-emelés<small>3 hónap 1 100 000 Ft-on, 9 hónap 1 200 000 Ft-on, + 13% szocho</small></div><div class="amt">~3 450 000 Ft</div></div>
+          <div class="row"><div class="desc">Felém megszűnő hétvégi túlórák<small>2026. február–október: kb. 1 008 000 Ft bruttó + 13% szocho</small></div><div class="amt">−1 140 000 Ft</div></div>
+          <div class="row sub"><div class="desc">Tényleges többletköltség</div><div class="amt">~2 310 000 Ft</div></div>
+        </div>
+        <p class="note">Minden összeg bruttó; a külsős árak 27% ÁFÁ-val. A 17 honlap piaci újraépítési értéke 12 millió Ft felett van. A számítás nem tartalmazza a kiállítói adminisztrációban és az AI-folyamatokban felszabaduló munkaórákat.</p>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -497,60 +473,18 @@
 <section id="piac">
   <div class="wrap">
     <div class="sec-head"><span class="num">04</span><h2>Piaci viszonyítás</h2></div>
-    <p class="lead-p">A szerep a marketingvezetői és az AI-bevezetési vezetői munkakör metszetében van, ezért piaci értéke becslésem szerint <strong>kb. 1,4 millió forint</strong>. Ennél 14–21%-kal kevesebbet kérek.</p>
-    <div class="scale" role="img" aria-label="Havi bruttó bérek: átlagkereset 745 500 Ft, jelenlegi alapbérem 920 540 Ft, Marketing Manager 662 000–1 392 000 Ft, kért sáv 1,1–1,2 millió Ft, becsült piaci érték kb. 1,4 millió Ft, AI Implementation Manager 1,6–2,0 millió Ft">
-      <div class="srow "><div class="slab">Országos átlagkereset<small>2026. július &middot; 745 500 Ft</small></div><div class="track"><span class="dot " style="left:9.7%"></span></div></div>
-      <div class="srow "><div class="slab">Jelenlegi alapbérem<small>2026. március óta &middot; 920 540 Ft</small></div><div class="track"><span class="dot " style="left:21.4%"></span></div></div>
-      <div class="srow "><div class="slab">Marketing Manager, Magyarország<small>a munkavállalók 80%-a &middot; 662 000 – 1 392 000 Ft</small></div><div class="track"><span class="band " style="left:4.1%;width:48.7%"></span></div></div>
-      <div class="srow me"><div class="slab">Kért sáv<small>AI- és digitális fejlesztési vezető &middot; 1 100 000 – 1 200 000 Ft</small></div><div class="track"><span class="band me" style="left:33.3%;width:6.7%"></span></div></div>
-      <div class="srow mk"><div class="slab">A szerep becsült piaci értéke<small>a két terület metszetében &middot; ~1 400 000 Ft</small></div><div class="track"><span class="dot mk" style="left:53.3%"></span></div></div>
-      <div class="srow "><div class="slab">AI Implementation Manager, Budapest<small>lejárt álláshirdetés &middot; 1 600 000 – 2 000 000 Ft</small></div><div class="track"><span class="band " style="left:66.7%;width:26.6%"></span></div></div>
-      <div class="srow axis"><div class="slab"></div><div class="track ticks"><span style="left:0%">0,6 M</span><span style="left:26.7%">1,0 M</span><span style="left:53.3%">1,4 M</span><span style="left:80%">1,8 M</span></div></div>
+    <p class="lead-p">A szerepem három területet fog össze: projektmenedzsmentet, marketinget és AI-bevezetést. A becsült piaci értéke kb. <strong>1,4 millió Ft</strong>, én ennél 14–21%-kal kevesebbet kérek.</p>
+    <div class="scale" role="img" aria-label="Havi bruttó bérek összevetése: jelenlegi alapbérem, projektmenedzser, Marketing Manager és Scrum Master sávok, a kért sáv 1,1–1,2 millió Ft, a becsült piaci érték kb. 1,4 millió Ft, AI Implementation Manager 1,6–2,0 millió Ft">
+      <div class="srow "><div class="slab">Jelenlegi alapbérem<small>2026. március óta &middot; 920 540 Ft</small></div><div class="track"><span class="dot " style="left:24.7%"></span></div></div>
+      <div class="srow "><div class="slab">Projektmenedzser, Magyarország<small>a munkavállalók 80%-a &middot; 617 000 – 1 464 000 Ft</small></div><div class="track"><span class="band " style="left:4.5%;width:56.4%"></span></div></div>
+      <div class="srow "><div class="slab">Marketing Manager, Magyarország<small>a munkavállalók 80%-a &middot; 662 000 – 1 392 000 Ft</small></div><div class="track"><span class="band " style="left:7.5%;width:48.6%"></span></div></div>
+      <div class="srow "><div class="slab">Scrum Master, Magyarország<small>a munkavállalók 80%-a &middot; 780 000 – 1 616 000 Ft</small></div><div class="track"><span class="band " style="left:15.3%;width:55.7%"></span></div></div>
+      <div class="srow me"><div class="slab">Kért sáv<small>AI- és digitális fejlesztési vezető &middot; 1 100 000 – 1 200 000 Ft</small></div><div class="track"><span class="band me" style="left:36.7%;width:6.6%"></span></div></div>
+      <div class="srow mk"><div class="slab">A szerep becsült piaci értéke<small>a három terület metszetében &middot; ~1 400 000 Ft</small></div><div class="track"><span class="dot mk" style="left:56.7%"></span></div></div>
+      <div class="srow "><div class="slab">AI Implementation Manager, Budapest<small>lejárt álláshirdetés &middot; 1 600 000 – 2 000 000 Ft</small></div><div class="track"><span class="band " style="left:70.0%;width:26.7%"></span></div></div>
+      <div class="srow axis"><div class="slab"></div><div class="track ticks"><span style="left:3.3%">0,6 M</span><span style="left:30.0%">1,0 M</span><span style="left:56.7%">1,4 M</span><span style="left:83.3%">1,8 M</span></div></div>
     </div>
-    <p class="note">Egy külsős AI- vagy fejlesztési vezető felvétele ennél magasabb bérrel, toborzási költséggel és hónapokig tartó betanulással járna. Én ismerem a BSI eseményeit, csapatát és rendszereit, és az első naptól eredményt tudok hozni.</p>
-  </div>
-</section>
-
-<hr class="divider">
-
-<section id="bertortenet">
-  <div class="wrap">
-    <div class="sec-head"><span class="num">05</span><h2>Bértörténet</h2></div>
-    <p class="lead-p">Egyik emelésem sem a feladatköröm bővüléséhez kapcsolódott. 2023 decemberében az inflációt követte a bérem, 2024 óta pedig az országos átlagkereset-növekedés kb. 60%-át kaptam meg: +18,9%-ot a +32,8%-kal szemben.</p>
-    <div class="tl">
-      <div class="row-tl"><div class="wk">2023.02.</div><div class="ph">Belépés<small>bruttó alapbér</small></div><div class="v">661 600 Ft</div></div>
-      <div class="row-tl"><div class="wk">2023.12.</div><div class="ph">Inflációkövető emelés<small>a 2023-as éves infláció 17,6% volt</small></div><div class="v up">774 440 Ft &nbsp;+17,1%</div></div>
-      <div class="row-tl"><div class="wk">2024.04.</div><div class="ph">Éves általános emelés</div><div class="v up">827 070 Ft &nbsp;+6,8%</div></div>
-      <div class="row-tl"><div class="wk">2025.04.</div><div class="ph">Éves általános emelés</div><div class="v up">876 700 Ft &nbsp;+6,0%</div></div>
-      <div class="row-tl"><div class="wk">2026.03.</div><div class="ph">Éves általános emelés</div><div class="v up">920 540 Ft &nbsp;+5,0%</div></div>
-    </div>
-
-    <div class="cmpwrap">
-      <table class="cmp">
-        <caption>Az emeléseim az inflációhoz és az országos bérnövekedéshez képest</caption>
-        <thead><tr><th scope="col">Emelés</th><th scope="col">Az én emelésem</th><th scope="col">Infláció</th><th scope="col">Országos bruttó átlagkereset</th></tr></thead>
-        <tbody>
-          <tr><td>2023.12.</td><td><b>+17,1%</b></td><td>17,6%<small>2023 átlaga</small></td><td>–</td></tr>
-          <tr><td>2024.04.</td><td><b>+6,8%</b></td><td>3,7%<small>2024 átlaga</small></td><td>+13,2%<small>2024</small></td></tr>
-          <tr><td>2025.04.</td><td><b>+6,0%</b></td><td>4,4%<small>2025 átlaga</small></td><td>+9,1%<small>2025. jan.–okt.</small></td></tr>
-          <tr><td>2026.03.</td><td><b>+5,0%</b></td><td>2,0%<small>2026. október</small></td><td>+7,5%<small>2026. július</small></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="callout">
-      <div class="k">Ami az új szerepben kiesik &middot; bruttó</div>
-      <h3>A hétvégi túlórák nagy része megszűnik</h3>
-      <div class="chips">
-        <span class="chip">2026.02. <b>202 250 Ft</b></span>
-        <span class="chip">2026.03. <b>164 511 Ft</b></span>
-        <span class="chip">2026.06. <b>218 045 Ft</b></span>
-        <span class="chip">2026.08. <b>101 053 Ft</b></span>
-        <span class="chip">2026.09. <b>151 579 Ft</b></span>
-        <span class="chip">2026.10. <b>170 677 Ft</b></span>
-      </div>
-      <p>Idén februártól októberig ez összesen kb. <strong>1 008 000 Ft bruttó</strong> plusz bevétel volt, a nettó kifizetésekből visszaszámolva. A kommunikáció átadásával ennek nagy része megszűnik, így a kért emelés egy része ezt a kiesést pótolja.</p>
-    </div>
+    <p class="note">Havi bruttó bérek. Egy külsős vezető felvétele ennél magasabb bérrel és hónapokig tartó betanulással járna; én az első naptól ismerem a BSI eseményeit és rendszereit.</p>
   </div>
 </section>
 
@@ -558,13 +492,14 @@
 
 <section id="projektek">
   <div class="wrap">
-    <div class="sec-head"><span class="num">06</span><h2>Ami az új szerepben elindul</h2></div>
-    <p class="lead-p">Ezekre a projektekre eddig nem jutott kapacitás. Az első már kipróbálható.</p>
+    <div class="sec-head"><span class="num">05</span><h2>Ami az új szerepben elindul</h2></div>
+    <p class="lead-p">Ezekre a projektekre eddig nem jutott kapacitás. Az első kettő már kipróbálható.</p>
     <div class="proj">
-      <div class="pcard hot"><div class="k">Első projekt &middot; kész prototípus</div><h3>Eseményagy</h3><p>Közös, ellenőrzött eseményadatokból frissülő webes tájékoztatás, egy helyen karbantartva. A cél, hogy az eseményinformációink mindig naprakészek legyenek, kevesebbet hibázzunk, és kevesebb legyen a belső frusztráció. A prototípus már elkészült, a megbeszélésen említettem is.</p></div>
-      <div class="pcard"><div class="k">Automatizálás</div><h3>Kiállítói adatlapok automatizálása</h3><p>A még kézi, Word- és Excel-alapú adatbekérés kiváltása minden eseményen, a Wizz Air Budapest Félmaratonon bevált minta alapján.</p></div>
-      <div class="pcard"><div class="k">AI</div><h3>Ügyfélszolgálati e-mailek AI-elemzése</h3><p>A levelezés mintázatainak feltárása: mik a leggyakoribb kérdések, és melyek előzhetők meg jobb tájékoztatással. Ebből később tudásbázis épülhet.</p></div>
-      <div class="pcard"><div class="k">Web</div><h3>Új eredménylista oldal</h3><p>Modern, gyors, mobilon is jól használható eredménylista-felület a résztvevőknek.</p></div>
+      <div class="pcard hot"><div class="k">Kész prototípus</div><h3>Eseményagy</h3><p>Közös, ellenőrzött eseményadatokból frissülő tájékoztatás. A cél, hogy az információink mindig naprakészek legyenek, kevesebbet hibázzunk, és kevesebb legyen a belső frusztráció.</p></div>
+      <div class="pcard hot"><div class="k">Kész prototípus &middot; Sales</div><h3>Digitális partnerajánlatok</h3><p>A Word-alapú ajánlatok helyett modern, digitális ajánlatok a potenciális partnereknek, a sales munkáját támogatva.</p></div>
+      <div class="pcard"><div class="k">Automatizálás</div><h3>Kiállítói adatlapok</h3><p>A kézi, Word- és Excel-alapú adatbekérés kiváltása minden eseményen.</p></div>
+      <div class="pcard"><div class="k">AI</div><h3>Ügyfélszolgálati e-mailek elemzése</h3><p>A leggyakoribb kérdések feltárása, hogy megelőzhessük őket.</p></div>
+      <div class="pcard" style="grid-column:1/-1"><div class="k">Web</div><h3>Új eredménylista oldal</h3><p>Modern, gyors, mobilon is jól használható felület a résztvevőknek.</p></div>
     </div>
   </div>
 </section>
@@ -573,29 +508,46 @@
 
 <section id="javaslat">
   <div class="wrap">
-    <div class="sec-head"><span class="num">07</span><h2>A javaslat</h2></div>
-    <p class="lead-p">A piaci értéknél tudatosan kevesebbet kérek, mert hosszú távon a BSI-nél képzelem el a szakmai jövőmet, és a közös építkezést fontosabbnak tartom a maximális bérnél. A szerep vezetői feladatokat is jelent: azt kérted, hogy fogjam össze a fejlesztéseket és a folyamatokat. Ennek ellenére nem vezetői fizetést kérek, hanem annál jóval kevesebbet. Ha csak a pénz érdekelne, már 2023-ban elmentem volna: két hónappal a BSI-s szerződésem aláírása után marketingkommunikációs vezetői ajánlatot kaptam, és maradtam.</p>
+    <div class="sec-head"><span class="num">06</span><h2>A javaslat</h2></div>
+    <p class="lead-p">A szerep vezetői feladatokat is jelent, mégsem vezetői fizetést kérek, hanem annál jóval kevesebbet, mert hosszú távon a BSI-nél képzelem el a szakmai jövőmet. Ha csak a pénz érdekelne, már 2023-ban elmentem volna egy marketingkommunikációs vezetői ajánlattal.</p>
     <div class="invest">
       <div class="row"><div class="desc">Jelenlegi alapbér<small>bruttó</small></div><div class="amt">920 540 Ft / hó</div></div>
-      <div class="row"><div class="desc">Juttatások<small>BKV-bérlet 9 450 Ft / hó, egészségpénztár 15 000 Ft / hó, SZÉP-kártya 400 000 Ft / év</small></div><div class="amt tag">Változatlan</div></div>
-      <div class="row"><div class="desc">1. lépcső &middot; 2027. január–március<small>a szerep indulásától, a sáv alja</small></div><div class="amt">1 100 000 Ft / hó</div></div>
-      <div class="row"><div class="desc">2. lépcső &middot; 2027. áprilistól<small>a 90 napos értékelés után, ha a vállalt mérföldkövek teljesültek</small></div><div class="amt">1 200 000 Ft / hó</div></div>
-      <div class="row strike"><div class="desc">A szerep becsült piaci értéke<small>a 04-es pont alapján, bruttó</small></div><div class="amt">~1 400 000 Ft / hó</div></div>
+      <div class="row"><div class="desc">1. lépcső &middot; 2027. január–március<small>nettó kb. 731 500 Ft</small></div><div class="amt">1 100 000 Ft / hó</div></div>
+      <div class="row"><div class="desc">2. lépcső &middot; áprilistól, automatikusan, ha a 90 napos mérföldkövek teljesülnek<small>nettó kb. 798 000 Ft</small></div><div class="amt">1 200 000 Ft / hó</div></div>
+      <div class="row"><div class="desc">Juttatások<small>BKV-bérlet, egészségpénztár, SZÉP-kártya, céges iPhone és MacBook Air, home office lehetősége</small></div><div class="amt tag">Változatlan</div></div>
+      <div class="row strike"><div class="desc">A szerep becsült piaci értéke</div><div class="amt">~1 400 000 Ft / hó</div></div>
       <div class="total">
         <div class="lbl">Javasolt bérsáv, bruttó<b>AI- és digitális fejlesztési vezető</b></div>
-        <div class="price">1,1 – 1,2 M Ft / hó<small>14–21%-kal a piaci érték alatt &middot; a sáv felső része eredményhez kötve</small></div>
+        <div class="price">1,1 – 1,2 M Ft / hó<small>nettó kb. 731–798 ezer Ft &middot; a felső rész eredményhez kötve</small></div>
       </div>
     </div>
-  </div>
-</section>
-
-<section style="padding-top:12px">
-  <div class="wrap">
-    <div class="guarantee">
+    <div class="callout">
+      <div class="k">Amit a +19,5% valójában jelent</div>
+      <h3>Az 1. lépcső emelésének közel felét a kieső túlórák viszik el</h3>
+      <div class="chips">
+        <span class="chip">Alapbér: <b>+19,5%</b></span>
+        <span class="chip">Tényleges éves jövedelem: <b>+9,5%</b></span>
+      </div>
+      <p>Az új szerepben a hétvégi túlórák nagy része megszűnik. 2026-ban eddig ez kb. <strong>1 008 000 Ft bruttó</strong> volt. Ezzel együtt számolva a teljes éves bruttó jövedelmem az 1. lépcsőben kb. 12,05 millió Ft-ról 13,2 millió Ft-ra nő, vagyis valójában csak kb. 9,5%-kal.</p>
+    </div>
+    <details class="more">
+      <summary>Bértörténet 2023 óta</summary>
+      <div class="inner">
+        <div class="tl" style="margin-top:0">
+          <div class="row-tl"><div class="wk">2023.02.</div><div class="ph">Belépés</div><div class="v">661 600 Ft</div></div>
+          <div class="row-tl"><div class="wk">2023.12.</div><div class="ph">Éves korrekció</div><div class="v">774 440 Ft</div></div>
+          <div class="row-tl"><div class="wk">2024.04.</div><div class="ph">Éves korrekció</div><div class="v">827 070 Ft</div></div>
+          <div class="row-tl"><div class="wk">2025.04.</div><div class="ph">Éves korrekció</div><div class="v">876 700 Ft</div></div>
+          <div class="row-tl"><div class="wk">2026.03.</div><div class="ph">Éves korrekció</div><div class="v">920 540 Ft</div></div>
+        </div>
+        <p class="note">Bruttó alapbérek. Egyik emelésem sem a feladatköröm bővüléséhez kapcsolódott.</p>
+      </div>
+    </details>
+    <div class="guarantee" style="margin-top:28px">
       <div class="seal"><div class="p">12</div><div class="t">HÓNAPOS<br>CÉL</div></div>
       <div>
         <h3>Mérhető vállalás</h3>
-        <p>A 90. napon közösen értékeljük, mit vállaltam és mi teljesült, és csak ezután lép életbe a 2. lépcső. Az első év célja, hogy kimutatható megtakarítást hozzak munkaórában és forintban, legalább az emelés éves költségének megfelelő értékben.</p>
+        <p>A 90. napon közösen értékeljük a mérföldköveket; ha teljesültek, a 2. lépcső automatikusan életbe lép. Az első év célja, hogy legalább az emelés éves költségének megfelelő megtakarítást hozzak, munkaórában és forintban. Ha ez teljesül, a 12. hónapban közösen felülvizsgáljuk a bérem a piaci érték felé, 1,3–1,4 millió Ft-ig.</p>
       </div>
     </div>
   </div>
@@ -605,50 +557,37 @@
 
 <section id="dontes">
   <div class="wrap">
-    <div class="sec-head"><span class="num">08</span><h2>Döntési lap</h2></div>
-    <p class="lead-p">Három lehetőség, bruttó alapbérben. Az A-t javaslom, mert ebben a bér felső része csak az eredmények után jár.</p>
+    <div class="sec-head"><span class="num">07</span><h2>Döntési lap</h2></div>
+    <p class="lead-p">Két lehetőség. Az A-t javaslom: ez az olcsóbb, és a bér felső része csak az eredmények után jár.</p>
     <div class="opts">
-      <div class="opt rec"><div class="badge">Ajánlott</div><div class="ok">A &middot; Lépcsőzetes</div><div class="op">1,1 → 1,2 M Ft</div><p>Január–március 1 100 000 Ft, áprilistól 1 200 000 Ft, a 90 napos értékelés után.</p><div class="oc">Első évi többletköltség<b>~3,5 M Ft</b>munkáltatói költségben</div></div>
-      <div class="opt"><div class="ok">B &middot; Fix</div><div class="op">1,15 M Ft</div><p>Januártól egységesen 1 150 000 Ft, eredményhez kötött lépcső nélkül.</p><div class="oc">Első évi többletköltség<b>~3,1 M Ft</b>munkáltatói költségben</div></div>
-      <div class="opt"><div class="ok">C &middot; Fix, magasabb</div><div class="op">1,25 M Ft</div><p>Januártól egységesen 1 250 000 Ft, értékelési feltétel nélkül.</p><div class="oc">Első évi többletköltség<b>~4,5 M Ft</b>munkáltatói költségben</div></div>
+      <div class="opt rec"><div class="badge">Ajánlott</div><div class="ok">A &middot; Lépcsőzetes</div><div class="op">1,1 → 1,2 M Ft</div><p>Január–március 1,1 M Ft, áprilistól 1,2 M Ft, a 90 napos értékelés után.</p><div class="oc">Nettó<b>~731 → 798 ezer Ft</b>első évi többletköltség: ~3,5 M Ft</div></div>
+      <div class="opt"><div class="ok">B &middot; Fix, magasabb</div><div class="op">1,25 M Ft</div><p>Januártól egységesen, értékelési feltétel nélkül.</p><div class="oc">Nettó<b>~831 ezer Ft</b>első évi többletköltség: ~4,5 M Ft</div></div>
     </div>
+    <p class="note">Bruttó alapbérek; a többletköltség munkáltatói költségben, a túlórák nélkül számolva.</p>
   </div>
 </section>
 
 <hr class="divider">
 
-<section id="atallas">
+<section id="hogyan-tovabb">
   <div class="wrap">
-    <div class="sec-head"><span class="num">09</span><h2>Az átállás 90 napja</h2></div>
+    <div class="sec-head"><span class="num">08</span><h2>Hogyan tovább</h2></div>
     <div class="tl">
-      <div class="row-tl"><div class="wk">1. hónap</div><div class="ph">Közös prioritások, egy kiválasztott folyamat alapmérése, az adatgazdák és a kommunikációs feladatok átvevőinek kijelölése</div></div>
-      <div class="row-tl"><div class="wk">2. hónap</div><div class="ph">Kipróbálható prototípus, szakmai tesztelés, a korábbi napi feladataim fokozatos átadása</div></div>
-      <div class="row-tl"><div class="wk">3. hónap</div><div class="ph">A ráfordítás és a minőség értékelése, döntés a használatba vételről és a következő fejlesztésekről</div></div>
+      <div class="row-tl"><div class="wk">1. hónap</div><div class="ph">Közös prioritások, egy folyamat alapmérése, a kommunikáció átadásának indítása</div></div>
+      <div class="row-tl"><div class="wk">2. hónap</div><div class="ph">Kipróbálható prototípus, tesztelés, a régi feladataim fokozatos átadása</div></div>
+      <div class="row-tl"><div class="wk">3. hónap</div><div class="ph">Értékelés, döntés a használatba vételről és a következő fejlesztésekről</div></div>
     </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<section id="lepesek">
-  <div class="wrap">
-    <div class="sec-head"><span class="num">10</span><h2>Következő lépések</h2></div>
-    <ol class="steps">
-      <li><strong>Visszajelzés.</strong> Ha az irány jó, bármelyik pontot szívesen átbeszélem.</li>
-      <li><strong>Írásos megállapodás.</strong> Rögzítjük a munkakört, a bérezést, az indulás dátumát és a 90 napos értékelés időpontját.</li>
-      <li><strong>Indulás 2027 januárjában</strong>, az első hónap közös prioritásaival.</li>
-    </ol>
     <div class="callout">
       <div class="k">Miért most</div>
       <h3>A tavaszi szezon előkészítése januárban indul</h3>
-      <p>Ha a szerep januárban elindulhat, a tavaszi eseményeken, köztük a Vivicittán már az új folyamatok működnek. Ehhez 2026 decemberében kellene döntenünk. Ha a döntés csúszik, a 2027-es tavaszi szezon még a régi, kézi folyamatokkal indul.</p>
+      <p>Ha 2026 decemberében döntünk, a tavaszi eseményeken, köztük a Vivicittán már az új folyamatok működnek. Ha a döntés csúszik, a 2027-es tavasz még a régi, kézi folyamatokkal indul.</p>
     </div>
-  </div>
-</section>
-
-<section style="padding-top:0">
-  <div class="wrap">
-    <p class="note">Források: infláció <a href="https://www.economx.hu/magyar-gazdasag/2026/04/27/ksh-inflacio-elelmiszerarak-energia-szolgaltatasok/">2023–2025 (KSH, Economx)</a>, <a href="https://www.mnb.hu/letoltes/inflacios-alapmutato-aktualis-havi-ertekeles.pdf">2026. október (MNB)</a>; átlagkereset <a href="https://infostart.hu/gazdasag/2025/02/25/ksh-a-brutto-atlagkereset-727-700-a-netto-500-500-forint">2024 (KSH, Infostart)</a>, <a href="https://www.economx.hu/magyar-gazdasag/2025/12/19/berek-keresetek-atlag-magyar-ksh-fizetes-821223/">2025. jan.–okt. (KSH, Economx)</a>, <a href="https://adozona.hu/altalanos/KSH_a_brutto_atlagkereset_745_500_forint_vo_Z96QRJ">2026. július (KSH, Adózóna)</a>. Piaci bérek: <a href="https://www.fizetesek.hu/en/salaryinfo/management/marketing-manager">Marketing Manager (Fizetesek.hu)</a>, <a href="https://wise.jobs/job/ai-implementation-manager-in-budapest-jid-2350">AI Implementation Manager (wise.jobs)</a>. A béradatok a saját bérnyilvántartásomból származnak.</p>
+    <ol class="steps" style="margin-top:28px">
+      <li><strong>Visszajelzés.</strong> Ha az irány jó, bármelyik pontot szívesen átbeszélem.</li>
+      <li><strong>Írásos megállapodás</strong> a munkakörről, a bérezésről, az indulásról, a 90 napos értékelésről és a 12 hónapos felülvizsgálatról.</li>
+      <li><strong>Indulás 2027 januárjában.</strong></li>
+    </ol>
+    <p class="note">Források: <a href="https://fizetesek.hu/en/salaryinfo/management/project-manager">Projektmenedzser</a>, <a href="https://www.fizetesek.hu/en/salaryinfo/management/marketing-manager">Marketing Manager</a>, <a href="https://fizetesek.hu/en/salaryinfo/information-technology/scrum-master">Scrum Master</a> (Fizetesek.hu), <a href="https://wise.jobs/job/ai-implementation-manager-in-budapest-jid-2350">AI Implementation Manager</a> (wise.jobs). A béradatok a saját bérnyilvántartásomból származnak.</p>
   </div>
 </section>
 
@@ -663,7 +602,7 @@
 (function(){
   var links=[].slice.call(document.querySelectorAll('.toc a'));
   var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
-  function setOn(id){links.forEach(function(a){a.classList.remove('on');});var a=map[id];if(a){a.classList.add('on');try{a.scrollIntoView({block:'nearest',inline:'center'});}catch(e){}}}
+  function setOn(id){links.forEach(function(a){a.classList.remove('on');});var a=map[id];if(a){a.classList.add('on');var w=a.parentNode;try{w.scrollTo({left:a.offsetLeft-w.clientWidth/2+a.clientWidth/2,behavior:'smooth'});}catch(e){}}}
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)setOn(e.target.id);});},{rootMargin:'-70px 0px -60% 0px'});
     Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});
